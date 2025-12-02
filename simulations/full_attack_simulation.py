@@ -230,7 +230,7 @@ def main():
     ]
 
     # Header
-    formatter.header("RAG Ingestion Integrity & Poisoning Defense Lab – FULL ATTACK SIMULATION REPORT")
+    formatter.header("RAG Security Lab V2 – FULL ATTACK SIMULATION REPORT")
     formatter.timestamp()
 
     # Scenario blocks
