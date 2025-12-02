@@ -175,6 +175,49 @@ This aligns with emerging frameworks such as **NIST AI RMF** and **ISO/IEC 42001
 
 ---
 
+## 🔍 Semantic Anomaly Detection
+
+This lab includes a lightweight but realistic semantic security layer that detects poisoned, manipulated, or policy-breaking documents before they enter a RAG pipeline.
+
+### Model
+The system uses the “all-MiniLM-L6-v2” SentenceTransformer embedding model.
+It is small, fast, and produces consistent semantic vectors suitable for anomaly detection.
+
+### Baseline Reference
+A single clean reference document is used as an anchor for comparison:
+    reference_texts = [
+        "This is a clean baseline security guideline about API key rotation."
+    ]
+
+### Detection Parameters
+
+| Parameter            | Description                                       | Value |
+|----------------------|---------------------------------------------------|-------|
+| semantic_threshold   | Minimum anomaly score required to flag a document | 0.35  |
+| alpha                | Weight: semantic drift vs. cluster distance       | 0.6   |
+
+### How Detection Works
+For each incoming document, the system computes:
+
+- **semantic_score** — meaning deviation from the baseline  
+- **cluster_distance** — geometric embedding distance  
+
+These are combined into a single metric:
+    total_score = alpha * semantic_score + (1 - alpha) * cluster_distance
+
+A document is considered suspicious if:
+    total_score >= semantic_threshold
+
+### Detectable Threats
+- Policy-override attempts (“disable logging”, “allow unrestricted access”)  
+- AI-generated poisoning text  
+- Intentional semantic drift attacks  
+- Malicious rewriting of policy or security guidance  
+
+This provides a deterministic, lightweight semantic defense layer without running a full LLM.
+
+---
+
 ## ⚠️ Disclaimer
 
 This project is provided for **educational and research purposes only**.  
@@ -186,9 +229,3 @@ express or implied, including but not limited to fitness for a particular purpos
 security guarantees, or compliance with regulatory requirements.
 
 Use this project **at your own risk**.
-
----
-
-## 📜 License
-
-MIT License
