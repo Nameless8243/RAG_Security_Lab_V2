@@ -76,36 +76,10 @@ python3 -m simulations.full_attack_simulation
 
 **Example output:**
 
-```
-═══════════════════════════════════════════════════════════════════════════
-   RAG SECURITY LAB V2 – FULL ATTACK SIMULATION REPORT
-═══════════════════════════════════════════════════════════════════════════
-Timestamp: 2025-12-02T15:45:56Z
 
-[OK] doc-clean                ACCEPTED
+<img width="826" height="945" alt="c5566e05-966d-4b2b-a652-3c6a63c5ff45" src="https://github.com/user-attachments/assets/6dfa9a5a-a7e9-4b78-a98b-80bd25cd87aa" />
 
-[!] doc-lineage-attack        QUARANTINED (blocked: lineage)
-     evidence: data/quarantine/...
 
-[!] doc-semantic-attack       QUARANTINED (blocked: semantic)
-     evidence: data/quarantine/...
-
-[!] doc-combined-attack       QUARANTINED (blocked: lineage)
-     evidence: data/quarantine/...
-
-───────────────────────────────────────────────────────────────────────────
- SUMMARY
-───────────────────────────────────────────────────────────────────────────
- Total documents    : 4
- Accepted           : 1
- Quarantined        : 3
- Lineage blocked    : 2
- Semantic blocked   : 1
-
- Audit log          : data/audit/audit_log.jsonl
- Quarantine folder  : data/quarantine/
-═══════════════════════════════════════════════════════════════════════════
-```
 
 Evidence bundles and audit logs are automatically generated:
 
