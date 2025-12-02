@@ -1,0 +1,41 @@
+# =========================
+# Python cache
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# =========================
+# Virtual environments
+# =========================
+venv/
+.venv/
+
+# =========================
+# Runtime data (ignored)
+# =========================
+data/cleaned/
+data/raw/
+data/embeddings/
+data/*.txt
+
+# Quarantine & audit (runtime artifacts)
+data/quarantine/
+data/audit/*.jsonl
+
+# =========================
+# OS / editor junk
+# =========================
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# =========================
+# Build / distribution
+# =========================
+dist/
+build/
